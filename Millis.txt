@@ -1,0 +1,45 @@
+unsigned long period1 = 1000; 
+unsigned long period2 = 3000; 
+unsigned long period3 = 5000; 
+
+unsigned long last_time1 = 0; 
+unsigned long last_time2 = 0; 
+unsigned long last_time3 = 0; 
+
+int led1 = 2;
+int led2 = 3;
+int led3 = 4;
+
+bool State1 = 0;
+bool State2 = 0;
+bool State3 = 0;
+
+void setup() {
+    Serial.begin(115200);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+}
+ 
+void loop() {
+   
+ if( millis() - last_time1 > period1) {
+   State1 = !State1;
+   last_time1 = millis(); 
+   digitalWrite(led1,State1);
+     
+ }  
+ if( millis() - last_time2 > period2) {
+   State2 = !State2;
+   last_time2 = millis(); 
+   digitalWrite(led2,State2);
+     
+ } 
+  if( millis() - last_time3 > period3) {
+   State3 = !State3;
+   last_time3 = millis(); 
+   digitalWrite(led3,State3);
+     
+ }
+   
+}
